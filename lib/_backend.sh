@@ -89,7 +89,7 @@ backend_node_dependencies() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/whaticket/backend
-  npm install
+  npm install --unsafe-perm=true
 EOF
 
   sleep 2
@@ -109,7 +109,7 @@ backend_node_build() {
 
   sudo su - deploy <<EOF
   cd /home/deploy/whaticket/backend
-  npm install
+  npm install --unsafe-perm=true
   npm run build
 EOF
 
@@ -132,7 +132,7 @@ backend_update() {
   cd /home/deploy/whaticket
   git pull
   cd /home/deploy/whaticket/backend
-  npm install
+  npm install --unsafe-perm=true
   rm -rf dist 
   npm run build
   npx sequelize db:migrate
